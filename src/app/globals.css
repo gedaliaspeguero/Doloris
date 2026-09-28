@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-crema: #fff8f1;
+  --color-crema-oscuro: #f6ebdf;
+  --color-tinta: #2b1b24;
+  --color-fucsia: #e0197d;
+  --color-fucsia-oscuro: #b8105f;
+  --color-fucsia-suave: #fde3ef;
+  --color-turquesa: #13a19a;
+  --color-turquesa-suave: #dff4f2;
+  --color-naranja: #f7941d;
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fraunces);
+  --font-script: var(--font-dancing);
+}
+
+body {
+  background: var(--color-crema);
+  color: var(--color-tinta);
+}
