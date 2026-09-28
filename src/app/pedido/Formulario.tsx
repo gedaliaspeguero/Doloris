@@ -56,9 +56,9 @@ export default function Formulario({ modo: modoInicial, pastelId, respuestas }: 
     e.preventDefault();
     setIntento(true);
     if (!valido) return;
-    const url = enlaceWhatsApp(mensaje);
-    setEnlace(url);
-    window.open(url, "_blank");
+    // Un enlace normal en vez de window.open: los navegadores bloquean las ventanas emergentes.
+    setEnlace(enlaceWhatsApp(mensaje));
+    window.scrollTo({ top: 0 });
   }
 
   if (enlace) {
@@ -67,13 +67,18 @@ export default function Formulario({ modo: modoInicial, pastelId, respuestas }: 
         <p className="text-5xl">🎂</p>
         <h1 className="mt-4 font-display text-3xl font-semibold">¡Tu pedido está listo!</h1>
         <p className="mt-3 text-tinta/70">
-          Se abrió WhatsApp con todos los detalles. Solo toca <strong>enviar</strong> y {negocio.nombreCorto} te responderá con el precio.
+          Toca el botón para abrir WhatsApp con todos los detalles ya escritos. Luego pulsa <strong>enviar</strong> y{" "}
+          {negocio.nombreCorto} te responderá con el precio.
           {p.tieneReferencia && " No olvides adjuntar tu foto de referencia en el chat."}
         </p>
-        <a href={enlace} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-6 py-3 font-bold text-white">
-          Abrir WhatsApp otra vez
+        <a href={enlace} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full bg-[#25D366] px-6 py-4 text-lg font-bold text-white shadow-md">
+          Abrir WhatsApp
         </a>
-        <p className="mt-4">
+        <pre className="mt-8 whitespace-pre-wrap rounded-2xl bg-white p-4 text-left font-sans text-sm text-tinta/80 ring-1 ring-tinta/5">{mensaje}</pre>
+        <p className="mt-6 flex justify-center gap-6">
+          <button type="button" onClick={() => setEnlace(null)} className="text-sm font-bold text-tinta/60 underline">
+            Editar pedido
+          </button>
           <Link href="/" className="text-sm font-bold text-tinta/60 underline">
             Volver al inicio
           </Link>
@@ -249,7 +254,7 @@ export default function Formulario({ modo: modoInicial, pastelId, respuestas }: 
 
       {intento && !valido && <p className="mt-6 font-bold text-fucsia-oscuro">Revisa los campos marcados arriba.</p>}
       <button className="mt-6 w-full rounded-full bg-[#25D366] px-6 py-4 text-lg font-bold text-white shadow-md hover:brightness-95 sm:w-auto">
-        Enviar a {negocio.nombreCorto} por WhatsApp
+        Continuar a WhatsApp
       </button>
       <p className="mt-3 text-sm text-tinta/60">
         {negocio.horario.map((h) => `${h.dias}: ${h.horas}`).join(" · ")}
