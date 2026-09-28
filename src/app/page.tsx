@@ -11,7 +11,7 @@ const pasos = [
 ];
 
 export default function Inicio() {
-  const portada = buscarPastel("carrusel-azul")!;
+  const portada = buscarPastel("stitch-angel")!;
   return (
     <>
       <section className="mx-auto grid max-w-5xl items-center gap-10 px-4 pb-12 pt-10 md:grid-cols-[1.1fr_0.9fr] md:pt-16">

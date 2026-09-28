@@ -42,3 +42,14 @@ La forma más sencilla es [Vercel](https://vercel.com): importar este repositori
 
 2. Imagen generada por IA a partir de la descripción del cliente.
 3. Panel privado para que Doloris apruebe pedidos, ponga precio y marque días llenos.
+
+## Fotos del catálogo
+
+`scripts/fotos/procesar.py` da a todas las fotos el mismo acabado: recorta el pastel, lo pone sobre el fondo crema de la marca con una sombra suave y guarda todas cuadradas y del mismo tamaño. Solo cambia fondo, luz y encuadre; el pastel queda tal cual.
+
+```bash
+pip install -r scripts/fotos/requirements.txt
+python scripts/fotos/procesar.py fotos-originales/*.jpg   # guarda en public/pasteles/
+```
+
+Rechaza las fotos donde el pastel sale cortado o con muy poca resolución, y dice por qué.

@@ -101,6 +101,20 @@ export const colores: { id: Color; nombre: string; muestra: string }[] = [
 
 export const pasteles: Pastel[] = [
   {
+    id: "stitch-angel",
+    nombre: "Stitch y Angel, 6 años",
+    descripcion:
+      "Un piso alto en azul con chorreado rosa, Stitch y Angel abrazados, número en brillo, cono de galleta, macarons, piruleta y rosas.",
+    ocasiones: ["cumpleanos"],
+    publicos: ["nino"],
+    temas: ["personajes"],
+    colores: ["rosa", "azul"],
+    pisos: 1,
+    libras: 5,
+    foto: "/pasteles/stitch-angel.jpg",
+    arte: { pisos: 1, base: "#BFE3EC", acento: "#E86A9A", borde: "#F4A7C3", adorno: "numero", chorreado: true, numero: "6" },
+  },
+  {
     id: "carrusel-azul",
     nombre: "Carrusel azul y dorado",
     descripcion:
